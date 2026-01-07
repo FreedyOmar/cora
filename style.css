@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", serif;
+    background-color: #0b1522;
+}
+
+/* CORAZÓN */
+.heart {
+    width: 300px;
+    height: 300px;
+    background-color: #f20044;
+    position: relative;
+
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation:
+        heart 2s ease-in-out infinite,
+        colorChange 10s linear infinite;
+}
+
+/* TEXTO */
+.heart p {
+    position: absolute;
+    width: 70%;
+    transform: rotate(45deg);
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.4;
+    color: white;
+    z-index: 2;
+}
+
+/* CÍRCULOS */
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -150px;
+    left: 0;
+}
+
+.heart::after {
+    left: 150px;
+    top: 0;
+}
+
+/* LATIDO */
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+/* COLOR GRADUAL */
+@keyframes colorChange {
+    0% {
+        background-color: #000000;
+        box-shadow: -10px 10px 90px #000000;
+    }
+    50% {
+        background-color: #dd4343;
+        box-shadow: -10px 10px 90px #ff6b81;
+    }
+    100% {
+        background-color: #f20044;
+        box-shadow: -10px 10px 90px #f20044;
+    }
+}
+
